@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | Appliance Energy Consumption</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="assets/img/PowerIcon.jpg" alt="Power Logo" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="televisions.html">Televisions</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1>Appliance Energy Consumption in Australia</h1>
+            <p>Information and tools to help households understand their energy usage.</p>
+        </div>
+
+        <h2>Overview</h2>
+        <p>
+            Household appliances make up a large portion of residential electricity use in Australia.
+            According to the Australian Government's Energy Rating program, the average household
+            consumes around 18–20 kWh per day, with heating, cooling, and refrigeration being
+            the largest contributors.
+        </p>
+        <p>
+            Understanding how much energy each appliance uses can help households make better
+            purchasing decisions and reduce their electricity bills over time.
+        </p>
+
+        <p>
+            One thing that often gets overlooked is <strong>standby power</strong> — devices that are
+            plugged in but not being used can still draw electricity. This can account for up to
+            10% of a household's total electricity bill.
+        </p>
+
+        <p>
+            Electricity prices in Australia vary by state and provider. As of 2024, most households
+            pay between 25 and 40 cents per kWh. The Australian Energy Rating program also provides
+            a 1–10 star system for appliances, where more stars means more energy efficient.
+        </p>
+
+        <p>
+            For more information, the Australian Government's
+            <a href="https://www.energy.gov.au/" target="_blank">Energy Rating website</a>
+            lets you compare appliances and estimate running costs.
+        </p>
+
+
+        <!-- Calculator -->
+        <h2>Appliance Energy Calculator</h2>
+        <p>Enter your appliance details to estimate energy use and running cost.</p>
+
+        <div class="calculator">
+            <form id="calc-form" novalidate>
+                <div class="calc-form">
+
+                    <div class="form-group">
+                        <label for="appliance-select">Appliance preset (optional)</label>
+                        <select id="appliance-select">
+                            <option value="custom">-- Enter wattage manually --</option>
+                            <option value="tv_lcd">LCD Television (~100 W)</option>
+                            <option value="tv_oled">OLED Television (~120 W)</option>
+                            <option value="fridge">Refrigerator (~150 W)</option>
+                            <option value="washing">Washing Machine (~500 W)</option>
+                            <option value="dishwasher">Dishwasher (~1400 W)</option>
+                            <option value="aircon">Air Conditioner (~1500 W)</option>
+                            <option value="microwave">Microwave (~1200 W)</option>
+                            <option value="laptop">Laptop (~45 W)</option>
+                            <option value="desktop">Desktop PC (~200 W)</option>
+                        </select>
+                        <span class="error-msg"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="watts">Power usage (Watts)</label>
+                        <input type="number" id="watts" placeholder="e.g. 100" min="0.1" step="0.1" />
+                        <span class="error-msg"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hours">Hours used per day</label>
+                        <input type="number" id="hours" placeholder="e.g. 5" min="0.1" max="24" step="0.1" />
+                        <span class="error-msg"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Electricity price (cents / kWh)</label>
+                        <input type="number" id="price" placeholder="e.g. 30" min="0.1" step="0.1" value="30" />
+                        <span class="error-msg"></span>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="button" class="btn btn-secondary" id="btn-reset">Reset</button>
+            </form>
+
+            <div id="calc-results" class="calc-results">
+                <h3>Results</h3>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Period</th>
+                                <th>Energy (kWh)</th>
+                                <th>Estimated Cost (AUD)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Daily</td>
+                                <td id="res-daily-kwh">—</td>
+                                <td id="res-daily-cost">—</td>
+                            </tr>
+                            <tr>
+                                <td>Monthly (30 days)</td>
+                                <td id="res-monthly-kwh">—</td>
+                                <td id="res-monthly-cost">—</td>
+                            </tr>
+                            <tr>
+                                <td>Yearly (365 days)</td>
+                                <td id="res-yearly-kwh">—</td>
+                                <td id="res-yearly-cost">—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What is a kilowatt-hour (kWh)?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    A kilowatt-hour is the standard unit used on electricity bills. It equals using
+                    1,000 watts of power for one hour. For example, a 100 W light bulb left on for
+                    10 hours uses 1 kWh.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Which appliances use the most energy in Australian homes?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Heating and cooling systems are typically the largest consumers, followed by water
+                    heaters, refrigerators, washing machines, and dishwashers. Televisions also
+                    contribute, especially larger models left on for long periods.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How much does electricity cost in Australia?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Prices vary by state and provider. As of 2024, most households pay between
+                    25 and 40 cents per kWh. Checking your electricity bill will give you the most
+                    accurate figure for your situation.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How can I reduce my energy bill?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Switch appliances off at the wall instead of leaving them on standby, choose
+                    higher star-rated appliances when buying, and run washing machines and dishwashers
+                    during off-peak hours.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What does the Australian Energy Star Rating mean?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    The Energy Rating label (1–10 stars) shows how efficiently an appliance uses
+                    energy compared to similar models. More stars means less energy used for the
+                    same task, which can make a significant difference in running costs over time.
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Lim Jun Xian | COS30045 Data Visualization</p>
+        <p>Built with assistance from ChatGPT (syntax reference)</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
