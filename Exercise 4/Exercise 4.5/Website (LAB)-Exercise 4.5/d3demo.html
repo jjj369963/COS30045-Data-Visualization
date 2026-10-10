@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3 Demo | Appliance Energy Consumption</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="d3demo.html" class="nav-logo">
+            <img src="assets/img/PowerIcon.jpg" alt="Power Logo" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="d3demo.html" class="active">D3 Demo</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1>D3.js Demo</h1>
+            <p>Exercise 4.5 – D3 Binding and drawing with data</p>
+        </div>
+
+        <!-- Exercise 4.3: Responsive SVG Container -->
+        <div class="responsive-svg-container"></div>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Lim Jun Xian | COS30045 Data Visualization</p>
+        <p>Built with assistance from ChatGPT (syntax reference)</p>
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="assets/js/d3_main.js"></script>
+</body>
+</html>

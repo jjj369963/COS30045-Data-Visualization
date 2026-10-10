@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3 Demo | Appliance Energy Consumption</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="d3demo.html" class="nav-logo">
+            <img src="assets/img/PowerIcon.jpg" alt="Power Logo" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="d3demo.html" class="active">D3 Demo</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1>D3.js Demo</h1>
+            <p>Manipulating and adding elements to the page using D3.</p>
+        </div>
+
+        <!-- Step 2: h1 above will have its colour changed by D3 -->
+
+        <!-- Contextual D3 paragraph insertion -->
+        <h2>Energy Saving Advice</h2>
+        <div class="container">
+            <p>General recommendations for households:</p>
+        </div>
+
+        <!-- Contextual D3 SVG graphic -->
+        <h2>Visual Indicator Preview</h2>
+        <p>Sample SVG graphic generated dynamically with D3:</p>
+        <svg width="300" height="120" style="border: 1px solid #e0e0e0; background-color: #fbfbfb; display: block; margin-top: 10px;"></svg>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Lim Jun Xian | COS30045 Data Visualization</p>
+        <p>Built with assistance from ChatGPT (syntax reference)</p>
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="assets/js/d3_main.js"></script>
+</body>
+</html>

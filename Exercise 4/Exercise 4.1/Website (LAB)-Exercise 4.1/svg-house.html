@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG House | Appliance Energy Consumption</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="assets/img/PowerIcon.jpg" alt="Power Logo" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="svg-house.html" class="active">SVG House</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1>Draw SVGs </h1>
+            <p>Exercise 4.1 — Creating and customising SVG shapes, understanding the coordinate system, and using the group element.</p>
+        </div>
+
+        <!-- ===== 1. Customised SVG Picture — Before & After ===== -->
+        <h2>1. Customised SVG Picture — Before &amp; After</h2>
+        <p>
+            The original picture (Before) was constructed using basic SVG primitives (<code>&lt;rect&gt;</code>,
+            <code>&lt;circle&gt;</code>, <code>&lt;polygon&gt;</code>, <code>&lt;path&gt;</code>, and <code>&lt;text&gt;</code>).
+            The customised version (After) adds enhanced visual styling, a linear gradient sky, a pulsing sun (<code>&lt;animate&gt;</code>),
+            clouds (<code>&lt;ellipse&gt;</code>), birds (<code>&lt;polyline&gt;</code>), a chimney (<code>&lt;rect&gt;</code>), flowers,
+            and groups both windows inside a <code>&lt;g&gt;</code> container with <code>transform="translate(x, y)"</code>.
+        </p>
+
+        <div class="visual-compare">
+            <!-- Card 1: BEFORE SVG -->
+            <div class="visual-card">
+                <div class="code-card-header">
+                    <span class="code-badge code-badge--before">BEFORE</span>
+                    <span class="code-card-title">Original SVG</span>
+                </div>
+                <div class="visual-card-body">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+                        <!-- Sky -->
+                        <rect width="500" height="305" fill="#87CEEB" />
+
+                        <!-- Grass -->
+                        <rect y="305" width="500" height="195" fill="#008000" />
+
+                        <!-- Sun -->
+                        <circle cx="404" cy="100" r="40" fill="#FFFF00" />
+
+                        <!-- Tree Trunk -->
+                        <rect x="80" y="230" width="20" height="125" fill="#8B4513" />
+
+                        <!-- Tree Leaves (path with curves and arcs) -->
+                        <path d="M 90 240 C 90 240 40 200 40 175 A 28 28 0 0 1 90 175 A 28 28 0 0 1 140 175 C 140 200 90 240 90 240 Z" fill="#228B22" />
+
+                        <!-- House Base -->
+                        <rect x="151" y="203" width="202" height="152" fill="#8B4513" />
+
+                        <!-- House Roof (polygon) -->
+                        <polygon points="151,203 353,203 252,101" fill="#CD853F" />
+
+                        <!-- Left Window -->
+                        <rect x="171" y="223" width="40" height="40" fill="#ADD8E6" />
+
+                        <!-- Right Window -->
+                        <rect x="293" y="223" width="40" height="40" fill="#ADD8E6" />
+
+                        <!-- Door -->
+                        <rect x="232" y="274" width="40" height="81" fill="#A0522D" />
+
+                        <!-- Doorknob -->
+                        <circle cx="265" cy="315" r="4" fill="black" />
+
+                        <!-- Garden Path (two curved lines using path) -->
+                        <path d="M 235 355 Q 120 410 210 500" fill="none" stroke="#FFA500" stroke-width="4" />
+                        <path d="M 265 355 Q 150 410 260 500" fill="none" stroke="#FFA500" stroke-width="4" />
+
+                        <!-- Label (text element) -->
+                        <text x="384" y="293" font-family="Arial, sans-serif" font-size="28" fill="black">House</text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Card 2: AFTER SVG -->
+            <div class="visual-card">
+                <div class="code-card-header">
+                    <span class="code-badge code-badge--after">AFTER</span>
+                    <span class="code-card-title">Customised SVG</span>
+                </div>
+                <div class="visual-card-body">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+                        <defs>
+                            <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%"   stop-color="#1a3a6b" />
+                                <stop offset="100%" stop-color="#87CEEB" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Sky with gradient -->
+                        <rect width="500" height="305" fill="url(#skyGrad)" />
+
+                        <!-- Grass - richer green -->
+                        <rect y="305" width="500" height="195" fill="#2E8B57" />
+
+                        <!-- Sun - moved, larger, pulsing radius -->
+                        <circle cx="420" cy="80" r="50" fill="gold">
+                            <animate attributeName="r" values="45;52;45" dur="3s" repeatCount="indefinite" />
+                        </circle>
+
+                        <!-- Clouds using <ellipse> -->
+                        <g fill="white" opacity="0.9">
+                            <ellipse cx="100" cy="60" rx="35" ry="20" />
+                            <ellipse cx="130" cy="50" rx="30" ry="18" />
+                            <ellipse cx="155" cy="62" rx="28" ry="16" />
+                        </g>
+                        <g fill="white" opacity="0.85">
+                            <ellipse cx="270" cy="45" rx="28" ry="16" />
+                            <ellipse cx="295" cy="37" rx="24" ry="14" />
+                            <ellipse cx="318" cy="46" rx="22" ry="13" />
+                        </g>
+
+                        <!-- Birds using <polyline> -->
+                        <g stroke="#222" stroke-width="2" fill="none">
+                            <polyline points="60,120 68,113 76,120" />
+                            <polyline points="78,110 86,103 94,110" />
+                            <polyline points="50,108 58,101 66,108" />
+                        </g>
+
+                        <!-- Tree Trunk - wider, darker -->
+                        <rect x="75" y="220" width="30" height="135" fill="#6B3A1F" />
+
+                        <!-- Tree Leaves - brighter lime green -->
+                        <path d="M 90 230 C 90 230 30 185 30 155 A 35 35 0 0 1 90 155 A 35 35 0 0 1 150 155 C 150 185 90 230 90 230 Z" fill="#32CD32" />
+
+                        <!-- House Base - warm terracotta -->
+                        <rect x="151" y="203" width="202" height="152" fill="#C0713D" />
+
+                        <!-- Chimney - added in Step 3 -->
+                        <rect x="300" y="60" width="30" height="70" fill="gray" />
+
+                        <!-- House Roof - darker olive-brown -->
+                        <polygon points="151,203 353,203 252,101" fill="#8B6914" />
+
+                        <!-- Windows grouped with <g> -->
+                        <g fill="#E0F0FF" stroke="#333" stroke-width="2">
+                            <g transform="translate(170, 220)">
+                                <rect x="0" y="0" width="42" height="42" />
+                                <line x1="21" y1="0" x2="21" y2="42" stroke-width="1" />
+                                <line x1="0" y1="21" x2="42" y2="21" stroke-width="1" />
+                            </g>
+                            <g transform="translate(290, 220)">
+                                <rect x="0" y="0" width="42" height="42" />
+                                <line x1="21" y1="0" x2="21" y2="42" stroke-width="1" />
+                                <line x1="0" y1="21" x2="42" y2="21" stroke-width="1" />
+                            </g>
+                        </g>
+
+                        <!-- Door - darker brown -->
+                        <rect x="232" y="274" width="40" height="81" fill="#7B3F00" />
+
+                        <!-- Doorknob - gold -->
+                        <circle cx="265" cy="315" r="5" fill="gold" />
+
+                        <!-- Garden Path - stone grey, thicker -->
+                        <path d="M 235 355 Q 120 410 210 500" fill="none" stroke="#aaa" stroke-width="6" />
+                        <path d="M 265 355 Q 150 410 260 500" fill="none" stroke="#aaa" stroke-width="6" />
+
+                        <!-- Flowers on the grass -->
+                        <g>
+                            <circle cx="60" cy="320" r="5" fill="#FF69B4" />
+                            <circle cx="60" cy="310" r="4" fill="#FF69B4" />
+                            <circle cx="55" cy="315" r="4" fill="#FF69B4" />
+                            <circle cx="65" cy="315" r="4" fill="#FF69B4" />
+                            <circle cx="60" cy="315" r="4" fill="#FFD700" />
+
+                            <circle cx="420" cy="325" r="5" fill="#FF8C00" />
+                            <circle cx="420" cy="315" r="4" fill="#FF8C00" />
+                            <circle cx="415" cy="320" r="4" fill="#FF8C00" />
+                            <circle cx="425" cy="320" r="4" fill="#FF8C00" />
+                            <circle cx="420" cy="320" r="4" fill="#FFD700" />
+
+                            <circle cx="390" cy="340" r="4" fill="#DA70D6" />
+                            <circle cx="390" cy="332" r="3" fill="#DA70D6" />
+                            <circle cx="386" cy="336" r="3" fill="#DA70D6" />
+                            <circle cx="394" cy="336" r="3" fill="#DA70D6" />
+                            <circle cx="390" cy="336" r="3" fill="#FFD700" />
+                        </g>
+
+                        <!-- Label - white -->
+                        <text x="370" y="293" font-family="Arial, sans-serif" font-size="22" fill="white">House</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <p class="chart-caption" style="text-align: center; margin-bottom: 24px;">Figure 1: Rendered SVG drawings — Original (Before) and Customised (After).</p>
+
+
+        <!-- ===== 2. Before & After Annotated Screenshots ===== -->
+        <h2>2. SVG Coordinate System — Annotated Screenshots (Before &amp; After)</h2>
+        <p>
+            SVGs use a 2D coordinate system with origin <code>(0, 0)</code> at the <strong>top-left</strong> corner,
+            where the x-axis increases to the right and the y-axis increases <em>downwards</em>.
+            The screenshots below annotate each element to demonstrate how the numerical coordinate values in code map to on-screen positions.
+        </p>
+
+        <div class="visual-compare">
+            <!-- Card 1: BEFORE Screenshot -->
+            <div class="visual-card">
+                <div class="code-card-header">
+                    <span class="code-badge code-badge--before">BEFORE </span>
+                    <span class="code-card-title">Original SVG Annotations</span>
+                </div>
+                <div class="visual-card-body">
+                    <img src="assets/img/svg-annotated.jpg"
+                         alt="Annotated screenshot of original SVG house showing coordinate values mapping to visual canvas positions" />
+                </div>
+            </div>
+
+            <!-- Card 2: AFTER Screenshot -->
+            <div class="visual-card">
+                <div class="code-card-header">
+                    <span class="code-badge code-badge--after">AFTER</span>
+                    <span class="code-card-title">Customised SVG Annotations </span>
+                </div>
+                <div class="visual-card-body">
+                    <img src="assets/img/svg-annotated-after.jpg"
+                         alt="Annotated screenshot of customised SVG house showing new coordinates, gradient, chimney, clouds, birds, and grouped windows" />
+                </div>
+            </div>
+        </div>
+        <p class="chart-caption" style="text-align: center; margin-bottom: 24px;">Figure 2: Annotated screenshots mapping code coordinates to canvas positions for both Before and After versions.</p>
+
+
+        <!-- ===== 3. SVG Code — Before & After ===== -->
+        <h2>3. SVG Code — Before &amp; After</h2>
+        <p>
+            The cards below show the complete SVG source code for both versions side by side.
+            Code is formatted with indentation, monospace styling, and vertical scrolling.
+        </p>
+
+        <div class="code-compare">
+
+            <!-- BEFORE card -->
+            <div class="code-card">
+                <div class="code-card-header">
+                    <span class="code-badge code-badge--before">BEFORE</span>
+                    <span class="code-card-title">Original SVG</span>
+                </div>
+                <pre class="code-block"><code>&lt;svg viewBox="0 0 500 500"&gt;
+  &lt;!-- Sky --&gt;
+  &lt;rect width="500" height="305"
+        fill="#87CEEB" /&gt;
+
+  &lt;!-- Grass --&gt;
+  &lt;rect y="305" width="500" height="195"
+        fill="#008000" /&gt;
+
+  &lt;!-- Sun --&gt;
+  &lt;circle cx="404" cy="100" r="40"
+          fill="#FFFF00" /&gt;
+
+  &lt;!-- Tree Trunk --&gt;
+  &lt;rect x="80" y="230" width="20"
+        height="125" fill="#8B4513" /&gt;
+
+  &lt;!-- Tree Leaves --&gt;
+  &lt;path d="M 90 240 C 90 240 40 200
+           40 175 A 28 28 0 0 1 90 175
+           A 28 28 0 0 1 140 175
+           C 140 200 90 240 90 240 Z"
+        fill="#228B22" /&gt;
+
+  &lt;!-- House Base --&gt;
+  &lt;rect x="151" y="203" width="202"
+        height="152" fill="#8B4513" /&gt;
+
+  &lt;!-- House Roof --&gt;
+  &lt;polygon points="151,203 353,203 252,101"
+           fill="#CD853F" /&gt;
+
+  &lt;!-- Left Window --&gt;
+  &lt;rect x="171" y="223" width="40"
+        height="40" fill="#ADD8E6" /&gt;
+
+  &lt;!-- Right Window --&gt;
+  &lt;rect x="293" y="223" width="40"
+        height="40" fill="#ADD8E6" /&gt;
+
+  &lt;!-- Door --&gt;
+  &lt;rect x="232" y="274" width="40"
+        height="81" fill="#A0522D" /&gt;
+
+  &lt;!-- Doorknob --&gt;
+  &lt;circle cx="265" cy="315" r="4"
+          fill="black" /&gt;
+
+  &lt;!-- Garden Path --&gt;
+  &lt;path d="M 235 355 Q 120 410 210 500"
+        fill="none" stroke="#FFA500"
+        stroke-width="4" /&gt;
+  &lt;path d="M 265 355 Q 150 410 260 500"
+        fill="none" stroke="#FFA500"
+        stroke-width="4" /&gt;
+
+  &lt;!-- Label --&gt;
+  &lt;text x="384" y="293"
+        font-size="28"
+        fill="black"&gt;House&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+            </div>
+
+            <!-- AFTER card -->
+            <div class="code-card">
+                <div class="code-card-header">
+                    <span class="code-badge code-badge--after">AFTER</span>
+                    <span class="code-card-title">Customised SVG</span>
+                </div>
+                <pre class="code-block"><code>&lt;svg viewBox="0 0 500 500"&gt;
+  &lt;defs&gt;
+    &lt;linearGradient id="skyGrad"
+        x1="0%" y1="0%"
+        x2="0%" y2="100%"&gt;
+      &lt;stop offset="0%"
+            stop-color="#1a3a6b" /&gt;
+      &lt;stop offset="100%"
+            stop-color="#87CEEB" /&gt;
+    &lt;/linearGradient&gt;
+  &lt;/defs&gt;
+
+  &lt;!-- Sky with gradient --&gt;
+  &lt;rect width="500" height="305"
+        fill="url(#skyGrad)" /&gt;
+
+  &lt;!-- Grass - richer green --&gt;
+  &lt;rect y="305" width="500" height="195"
+        fill="#2E8B57" /&gt;
+
+  &lt;!-- Sun - moved + pulsing animate --&gt;
+  &lt;circle cx="420" cy="80" r="50"
+          fill="gold"&gt;
+    &lt;animate attributeName="r"
+             values="45;52;45"
+             dur="3s"
+             repeatCount="indefinite" /&gt;
+  &lt;/circle&gt;
+
+  &lt;!-- Clouds using ellipse --&gt;
+  &lt;g fill="white" opacity="0.9"&gt;
+    &lt;ellipse cx="100" cy="60"
+             rx="35" ry="20" /&gt;
+    &lt;ellipse cx="130" cy="50"
+             rx="30" ry="18" /&gt;
+    &lt;ellipse cx="155" cy="62"
+             rx="28" ry="16" /&gt;
+  &lt;/g&gt;
+  &lt;g fill="white" opacity="0.85"&gt;
+    &lt;ellipse cx="270" cy="45"
+             rx="28" ry="16" /&gt;
+    &lt;ellipse cx="295" cy="37"
+             rx="24" ry="14" /&gt;
+    &lt;ellipse cx="318" cy="46"
+             rx="22" ry="13" /&gt;
+  &lt;/g&gt;
+
+  &lt;!-- Birds using polyline --&gt;
+  &lt;g stroke="#222" stroke-width="2"
+     fill="none"&gt;
+    &lt;polyline points="60,120 68,113 76,120" /&gt;
+    &lt;polyline points="78,110 86,103 94,110" /&gt;
+    &lt;polyline points="50,108 58,101 66,108" /&gt;
+  &lt;/g&gt;
+
+  &lt;!-- Tree Trunk - wider --&gt;
+  &lt;rect x="75" y="220" width="30"
+        height="135" fill="#6B3A1F" /&gt;
+
+  &lt;!-- Tree Leaves - brighter --&gt;
+  &lt;path d="M 90 230 C 90 230 30 185
+           30 155 A 35 35 0 0 1 90 155
+           A 35 35 0 0 1 150 155
+           C 150 185 90 230 90 230 Z"
+        fill="#32CD32" /&gt;
+
+  &lt;!-- House Base - terracotta --&gt;
+  &lt;rect x="151" y="203" width="202"
+        height="152" fill="#C0713D" /&gt;
+
+  &lt;!-- Chimney (Step 3) --&gt;
+  &lt;rect x="300" y="60" width="30"
+        height="70" fill="gray" /&gt;
+
+  &lt;!-- House Roof - darker --&gt;
+  &lt;polygon points="151,203 353,203 252,101"
+           fill="#8B6914" /&gt;
+
+  &lt;!-- Windows in a group (Step 4)
+       Parent &lt;g&gt; sets shared fill/stroke.
+       Each window uses its own
+       &lt;g transform="translate"&gt;. --&gt;
+  &lt;g fill="#E0F0FF" stroke="#333"
+     stroke-width="2"&gt;
+    &lt;g transform="translate(170, 220)"&gt;
+      &lt;rect x="0" y="0"
+            width="42" height="42" /&gt;
+      &lt;line x1="21" y1="0"
+            x2="21" y2="42"
+            stroke-width="1" /&gt;
+      &lt;line x1="0" y1="21"
+            x2="42" y2="21"
+            stroke-width="1" /&gt;
+    &lt;/g&gt;
+    &lt;g transform="translate(290, 220)"&gt;
+      &lt;rect x="0" y="0"
+            width="42" height="42" /&gt;
+      &lt;line x1="21" y1="0"
+            x2="21" y2="42"
+            stroke-width="1" /&gt;
+      &lt;line x1="0" y1="21"
+            x2="42" y2="21"
+            stroke-width="1" /&gt;
+    &lt;/g&gt;
+  &lt;/g&gt;
+
+  &lt;!-- Door - darker brown --&gt;
+  &lt;rect x="232" y="274" width="40"
+        height="81" fill="#7B3F00" /&gt;
+
+  &lt;!-- Doorknob - gold --&gt;
+  &lt;circle cx="265" cy="315" r="5"
+          fill="gold" /&gt;
+
+  &lt;!-- Flowers on the grass --&gt;
+  &lt;g&gt;
+    &lt;circle cx="60" cy="320" r="5"
+            fill="#FF69B4" /&gt;
+    &lt;circle cx="60" cy="310" r="4"
+            fill="#FF69B4" /&gt;
+    &lt;circle cx="55" cy="315" r="4"
+            fill="#FF69B4" /&gt;
+    &lt;circle cx="65" cy="315" r="4"
+            fill="#FF69B4" /&gt;
+    &lt;circle cx="60" cy="315" r="4"
+            fill="#FFD700" /&gt;
+  &lt;/g&gt;
+
+  &lt;!-- Garden Path - light grey, thicker --&gt;
+  &lt;path d="M 235 355 Q 120 410 210 500"
+        fill="none" stroke="#aaa"
+        stroke-width="6" /&gt;
+  &lt;path d="M 265 355 Q 150 410 260 500"
+        fill="none" stroke="#aaa"
+        stroke-width="6" /&gt;
+
+  &lt;!-- Label - white on terracotta --&gt;
+  &lt;text x="370" y="293"
+        font-size="22"
+        fill="white"&gt;House&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+            </div>
+
+        </div>
+
+
+        <!-- ===== 4. Code Element Changes Summary Table ===== -->
+        <h2>4. Code Element Changes Summary</h2>
+        <p>Every SVG element that was added, modified, or grouped between the original and customised versions.</p>
+
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 24%;">Element (SVG&nbsp;Tag)</th>
+                        <th style="width: 16%;">Change Type</th>
+                        <th style="width: 28%;">Before Code</th>
+                        <th style="width: 32%;">After Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;linearGradient&gt;</code> in <code>&lt;defs&gt;</code></td>
+                        <td><span class="change-badge change-badge--added">Added</span></td>
+                        <td><span class="none-value">None</span></td>
+                        <td>Deep blue → sky blue gradient for the sky background</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;rect&gt;</code> — Sky</td>
+                        <td><span class="change-badge change-badge--modified">Modified</span></td>
+                        <td><code>fill="#87CEEB"</code></td>
+                        <td><code>fill="url(#skyGrad)"</code> (uses gradient)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;rect&gt;</code> — Grass</td>
+                        <td><span class="change-badge change-badge--modified">Modified</span></td>
+                        <td><code>fill="#008000"</code></td>
+                        <td><code>fill="#2E8B57"</code> (richer green)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;circle&gt;</code> — Sun</td>
+                        <td><span class="change-badge change-badge--modified">Modified</span></td>
+                        <td><code>cx="404" cy="100" r="40" fill="#FFFF00"</code></td>
+                        <td>Moved to <code>cx="420" cy="80" r="50" fill="gold"</code>; <code>&lt;animate&gt;</code> added for pulsing radius</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;ellipse&gt;</code> — Clouds</td>
+                        <td><span class="change-badge change-badge--added">Added (Step 3)</span></td>
+                        <td><span class="none-value">None</span></td>
+                        <td>2 clouds, each made of 3 overlapping <code>&lt;ellipse&gt;</code> elements grouped in <code>&lt;g&gt;</code> with <code>opacity</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;polyline&gt;</code> — Birds</td>
+                        <td><span class="change-badge change-badge--added">Added (Step 3)</span></td>
+                        <td><span class="none-value">None</span></td>
+                        <td>3 birds drawn as V-shapes using <code>&lt;polyline points="…"&gt;</code> with <code>fill="none" stroke="#222"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;rect&gt;</code> — Tree Trunk</td>
+                        <td><span class="change-badge change-badge--modified">Modified</span></td>
+                        <td><code>x="80" y="230" width="20" height="125" fill="#8B4513"</code></td>
+                        <td><code>x="75" y="220" width="30" height="135" fill="#6B3A1F"</code> (wider, taller, darker)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;path&gt;</code> — Tree Leaves</td>
+                        <td><span class="change-badge change-badge--modified">Modified</span></td>
+                        <td><code>fill="#228B22"</code></td>
+                        <td><code>fill="#32CD32"</code> (brighter lime green)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;rect&gt;</code> — House Base</td>
+                        <td><span class="change-badge change-badge--modified">Modified</span></td>
+                        <td><code>fill="#8B4513"</code></td>
+                        <td><code>fill="#C0713D"</code> (warmer terracotta)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;rect&gt;</code> — Chimney</td>
+                        <td><span class="change-badge change-badge--added">Added (Step 3)</span></td>
+                        <td><span class="none-value">None</span></td>
+                        <td><code>x="300" y="60" width="30" height="70" fill="gray"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;polygon&gt;</code> — Roof</td>
+                        <td><span class="change-badge change-badge--modified">Modified</span></td>
+                        <td><code>fill="#CD853F"</code></td>
+                        <td><code>fill="#8B6914"</code> (darker olive-brown)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;g&gt;</code> — Window Group</td>
+                        <td><span class="change-badge change-badge--added">Added (Step 4)</span></td>
+                        <td>Two separate <code>&lt;rect&gt;</code> elements with no shared styling</td>
+                        <td>Parent <code>&lt;g fill="…" stroke="…"&gt;</code> with two nested <code>&lt;g transform="translate(x,y)"&gt;</code> children</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;rect&gt;</code> — Windows</td>
+                        <td><span class="change-badge change-badge--modified">Modified (Step 4)</span></td>
+                        <td><code>fill="#ADD8E6"</code> (no stroke)</td>
+                        <td><code>fill="#E0F0FF" stroke="#333" stroke-width="2"</code> (inherited from parent <code>&lt;g&gt;</code>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;line&gt;</code> — Window Cross-bars</td>
+                        <td><span class="change-badge change-badge--added">Added (Step 4)</span></td>
+                        <td><span class="none-value">None</span></td>
+                        <td>4 × <code>&lt;line&gt;</code> (2 per window) inside each window <code>&lt;g&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;rect&gt;</code> — Door</td>
+                        <td><span class="change-badge change-badge--modified">Modified</span></td>
+                        <td><code>fill="#A0522D"</code></td>
+                        <td><code>fill="#7B3F00"</code> (darker brown)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;circle&gt;</code> — Doorknob</td>
+                        <td><span class="change-badge change-badge--modified">Modified</span></td>
+                        <td><code>r="4" fill="black"</code></td>
+                        <td><code>r="5" fill="gold"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;circle&gt;</code> — Flowers</td>
+                        <td><span class="change-badge change-badge--added">Added (Step 3)</span></td>
+                        <td><span class="none-value">None</span></td>
+                        <td>3 flowers on the grass; each flower uses 4 petal <code>&lt;circle&gt;</code> + 1 gold centre <code>&lt;circle&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;path&gt;</code> — Garden Path</td>
+                        <td><span class="change-badge change-badge--modified">Modified</span></td>
+                        <td><code>stroke="#FFA500" stroke-width="4"</code></td>
+                        <td><code>stroke="#aaa" stroke-width="6"</code> (light stone grey, thicker)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;text&gt;</code> — Label</td>
+                        <td><span class="change-badge change-badge--modified">Modified</span></td>
+                        <td><code>fill="black"</code></td>
+                        <td><code>fill="white"</code> (readable on terracotta wall)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Lim Jun Xian | COS30045 Data Visualization</p>
+        <p>Built with assistance from ChatGPT (syntax reference) and Antigravity (review and improvements)</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
