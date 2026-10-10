@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-chart | Appliance Energy Consumption</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="Multi-chart.html" class="nav-logo">
+            <img src="assets/img/PowerIcon.jpg" alt="Power Logo" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="Multi-chart.html" class="active">Multi-chart</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1>Multi-chart Webpage</h1>
+            <p>COS30045 Exercise 5 – Multi-Chart Data Visualisation</p>
+        </div>
+
+        <!-- Exercise 5.1: Vertical Bar Chart -->
+        <h2>Exercise 5.1 – Vertical Bar Chart with axis</h2>
+        <p>Average energy consumption for 55-inch TVs across different screen technologies.</p>
+        <div class="responsive-svg-container">
+            <div id="bar-chart"></div>
+        </div>
+
+        <!-- Exercise 5.2: Scatter Plot and Line Chart -->
+        <h2>Exercise 5.2 – Scatter Plot and Line Chart</h2>
+        <p>Average Australian electricity spot prices from 1998 to 2024 ($ per MWh).</p>
+        <div class="responsive-svg-container">
+            <div id="line-chart"></div>
+        </div>
+
+        <!-- Exercise 5.3: Donut Chart -->
+        <h2>Exercise 5.3 – Donut Chart</h2>
+        <p>Proportion of small, medium and large TV models in the dataset.</p>
+        <div class="responsive-svg-container">
+            <div id="donut-chart"></div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Lim Jun Xian | COS30045 Data Visualization</p>
+        <p>Built with assistance from ChatGPT (syntax reference)</p>
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="assets/js/bar-chart.js"></script>
+    <script src="assets/js/line-chart.js"></script>
+    <script src="assets/js/donut-chart.js"></script>
+</body>
+</html>
