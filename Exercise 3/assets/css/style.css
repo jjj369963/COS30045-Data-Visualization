@@ -1,0 +1,463 @@
+/* style.css - COS30045 Exercise 0.2, Lim Jun Xian */
+
+/* three colours 鈥?primary (brown), accent (orange), border (grey) */
+:root {
+    --primary: #6b4f10;
+    --accent:  #d08a15;
+    --border:  #e0e0e0;
+}
+
+/* reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* base styles */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--primary);
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+ul {
+    list-style: none;
+}
+
+h2 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin: 32px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* navigation */
+nav {
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 54px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+.nav-logo img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+}
+
+.nav-logo span {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2px;
+}
+
+.nav-links a {
+    color: #fff;
+    font-size: 0.88rem;
+    padding: 6px 12px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+.nav-links a.active {
+    background: #fff;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* main content area */
+main {
+    flex: 1;
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 36px 24px 48px;
+}
+
+/* page header at the top of each page */
+.page-header {
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+}
+
+.page-header h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.page-header p {
+    font-size: 0.9rem;
+}
+
+
+/* shared list style used on TV and About pages */
+.content-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+.content-list li {
+    margin-bottom: 6px;
+    font-size: 0.92rem;
+    color: #666;
+}
+
+/* small footnote text */
+.footnote {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+/* FAQ accordion */
+.faq-list {
+    margin-bottom: 24px;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border);
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 13px 0;
+    font-size: 0.92rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.faq-question:hover {
+    color: var(--primary);
+}
+
+.faq-question.open {
+    color: var(--primary);
+}
+
+.faq-icon {
+    font-size: 1.1rem;
+    font-weight: normal;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+.faq-question.open .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 0 14px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.faq-answer.open {
+    display: block;
+}
+
+/* energy calculator */
+.calculator {
+    border: 1px solid var(--border);
+    padding: 22px;
+    margin-bottom: 36px;
+}
+
+.calc-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-group label {
+    font-size: 0.82rem;
+    font-weight: bold;
+    color: #666;
+}
+
+.form-group input,
+.form-group select {
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    font-size: 0.92rem;
+    background: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.form-group .error-msg {
+    display: none;
+    font-size: 0.78rem;
+    color: #c0392b;
+}
+
+.form-group.invalid input,
+.form-group.invalid select {
+    border-color: #c0392b;
+}
+
+.form-group.invalid .error-msg {
+    display: block;
+}
+
+/* buttons - shared base, different colours */
+.btn {
+    padding: 9px 24px;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    cursor: pointer;
+    border: 1px solid var(--primary);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.btn-secondary {
+    background: #fff;
+    color: var(--primary);
+    margin-left: 8px;
+}
+
+.btn-secondary:hover {
+    background: #fff;
+}
+
+/* results panel */
+.calc-results {
+    display: none;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.calc-results.visible {
+    display: block;
+}
+
+/* data table - used on both the TV page and the results table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    margin-bottom: 6px;
+}
+
+.data-table th {
+    background: var(--primary);
+    color: #fff;
+    padding: 9px 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.data-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    color: #333;
+}
+
+.data-table tr:hover td {
+    background: #fff;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 4px;
+}
+
+/* bar chart on TV page */
+.bar-chart {
+    margin: 16px 0 28px;
+}
+
+.bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+.bar-label {
+    width: 160px;
+    flex-shrink: 0;
+    color: #666;
+}
+
+.bar-track {
+    flex: 1;
+    height: 16px;
+    background: #f0f0f0;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--primary);
+}
+
+.bar-value {
+    width: 54px;
+    text-align: right;
+    flex-shrink: 0;
+    color: #666;
+}
+
+/* chart image section */
+.chart-container {
+    margin: 20px 0 24px;
+    text-align: center;
+}
+
+.chart-img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+}
+
+.chart-caption {
+    font-size: 0.82rem;
+    color: #999;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* technology comparison grid */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 16px 0 24px;
+}
+
+.tech-card {
+    border: 1px solid var(--border);
+    padding: 18px;
+}
+
+.tech-card h3 {
+    color: var(--primary);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--accent);
+}
+
+.tech-card p {
+    font-size: 0.88rem;
+    margin-bottom: 0;
+}
+
+@media (max-width: 680px) {
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* footer */
+footer {
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 14px 24px;
+    font-size: 0.82rem;
+}
+
+/* mobile - stack nav links below logo on small screens */
+@media (max-width: 560px) {
+    nav {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 10px 16px;
+        gap: 8px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .calc-form {
+        grid-template-columns: 1fr;
+    }
+
+    .bar-label {
+        width: 110px;
+    }
+}
+

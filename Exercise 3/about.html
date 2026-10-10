@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Appliance Energy Consumption</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="assets/img/PowerIcon.jpg" alt="Power Logo" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="televisions.html">Televisions</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="storyboard.html">Storyboard</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1>About Us</h1>
+            <p>About this project and the tools used to build it.</p>
+        </div>
+
+        <h2>About This Project</h2>
+        <p>
+            This website was created as part of COS30045 – Data Visualization at Swinburne University
+            of Technology. It focuses on household appliance energy consumption in Australia, with the
+            aim of presenting energy data in a clear and accessible way.
+        </p>
+        <p>
+            The site was built using HTML, CSS, and JavaScript without any external libraries.
+            It forms the foundation for later exercises involving the D3.js data visualisation library.
+        </p>
+
+        <h2>Developer</h2>
+        <p>Lim Jun Xian — COS30045 Data Visualization Student, Swinburne University of Technology</p>
+
+        <h2>Technologies</h2>
+        <ul class="content-list">
+            <li>HTML5 — page structure across three pages</li>
+            <li>CSS3 — one external stylesheet shared across all pages, using CSS variables</li>
+            <li>JavaScript — FAQ accordion, energy calculator, and input validation</li>
+            <li>GitHub — version control and repository hosting</li>
+        </ul>
+
+        <h2>Data Sources</h2>
+        <p>Energy figures used on this site are estimates based on:</p>
+        <ul class="content-list">
+            <li><a href="https://www.energyrating.gov.au" target="_blank">energyrating.gov.au</a> — Australian Government Energy Rating</li>
+            <li><a href="https://www.aer.gov.au" target="_blank">aer.gov.au</a> — Australian Energy Regulator</li>
+            <li>Manufacturer product specifications (Samsung, LG, Sony, Hisense, TCL)</li>
+        </ul>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Lim Jun Xian | COS30045 Data Visualization</p>
+        <p>Built with assistance from ChatGPT (syntax reference)</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
