@@ -1,0 +1,172 @@
+/* base.css - COS30045 Exercise 6, Lim Jun Xian */
+/* Theme colors consistent with Appliance Energy Consumption project */
+:root {
+    --primary: #6b4f10;
+    --accent:  #d08a15;
+    --border:  #e0e0e0;
+}
+
+/* Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--primary);
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+ul {
+    list-style: none;
+}
+
+h2 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin: 32px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Navigation */
+nav {
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 54px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+.nav-logo img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+}
+
+.nav-logo span {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2px;
+}
+
+.nav-links a {
+    color: #fff;
+    font-size: 0.88rem;
+    padding: 6px 12px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+.nav-links a.active {
+    background: #fff;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Main Content Area */
+main {
+    flex: 1;
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 36px 24px 48px;
+}
+
+/* Page Header */
+.page-header {
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+}
+
+.page-header h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.page-header p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 14px 24px;
+    font-size: 0.82rem;
+    margin-top: auto;
+}
+
+footer p {
+    margin-bottom: 4px;
+}
+
+/* Mobile responsive navigation */
+@media (max-width: 560px) {
+    nav {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 10px 16px;
+        gap: 8px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+
+    main {
+        padding: 24px 16px 36px;
+    }
+}
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Visualisations | Appliance Energy Consumption</title>
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/visualisation.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="assets/img/PowerIcon.jpg" alt="Power Logo" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Interactive Visualisations</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1>Interactive Visualisations</h1>
+            <p>COS30045 Exercise 6 – TV Energy Consumption & Interactive Exploration</p>
+        </div>
+
+        <!-- Exercise 6.1: Static Histogram -->
+        <h2>Exercise 6.1 – Histogram</h2>
+        <p>Annual energy consumption distribution for televisions in Australia (kWh/year).</p>
+        <div class="responsive-svg-container">
+            <div id="histogram_static"></div>
+        </div>
+        <div class="chart-notes">
+            <p>Data source: <a href="https://reg.energyrating.gov.au/gep/p/10631" target="_blank" rel="noopener noreferrer">Energy Rating Data for household appliances - Televisions</a> (Downloaded Jan 2026)</p>
+        </div>
+
+        <!-- Exercise 6.2: Interactive Histogram with Filters -->
+        <h2>Exercise 6.2 – Interactive Histogram: Filters</h2>
+        <p>Energy Consumption for different TV screen types and sizes with interactive filtering.</p>
+        <p>Most TV's on sale in Australia are LED and they vary considerably in energy consumption.</p>
+
+        <!-- Top Filters: Screen Technology -->
+        <div id="filters_screen"></div>
+
+        <!-- Interactive Histogram Container -->
+        <div class="responsive-svg-container">
+            <div id="histogram"></div>
+        </div>
+
+        <!-- Bottom Filters: Screen Size (Extension) -->
+        <div id="filters_size"></div>
+
+        <div class="chart-notes">
+            <p>Data source: <a href="https://reg.energyrating.gov.au/gep/p/10631" target="_blank" rel="noopener noreferrer">Energy Rating Data for household appliances - Televisions</a> (Downloaded Jan 2026)</p>
+        </div>
+
+        <!-- Exercise 6.3 & 6.4: Scatterplot with colour coding and tooltips -->
+        <h2>Exercise 6.3 & 6.4 – Scatterplot: Colour Coding & Tooltips</h2>
+        <p>Energy Consumption by Star Rating for TVs, colour-coded by screen technology.</p>
+        <p>Hover over any data point to explore its screen size with the interactive tooltip.</p>
+        <div class="responsive-svg-container">
+            <div id="scatterplot"></div>
+        </div>
+        <div class="chart-notes">
+            <p>Data source: <a href="https://reg.energyrating.gov.au/gep/p/10631" target="_blank" rel="noopener noreferrer">Energy Rating Data for household appliances - Televisions</a> (Downloaded Jan 2026)</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Lim Jun Xian | COS30045 Data Visualization</p>
+        <p>Built with assistance from ChatGPT (syntax reference)</p>
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="assets/js/shared-constants.js"></script>
+    <script src="assets/js/histogram.js"></script>
+    <script src="assets/js/scatterplot.js"></script>
+    <script src="assets/js/interactions.js"></script>
+    <script src="assets/js/load-data.js"></script>
+</body>
+</html>
