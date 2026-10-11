@@ -1,5 +1,14 @@
 # COS30045 – Data Visualisation
 
+## Student Details & Live Demo
+
+- **Student Name:** Lim Jun Xian
+- **Student ID:** 106730497
+- **Coursework Live URL (Mercury):** https://mercury.swin.edu.au/cos30045/s106730497/COS30045-Data-Visualization/index.html
+- **Repository:** https://github.com/jjj369963/COS30045-Data-Visualization
+
+---
+
 ## Introduction
 
 This repository is for **COS30045: Data Visualisation**. The unit introduces the fundamental principles of **information visualisation**, focusing on how data can be effectively communicated through visual representations. Students will learn design practices that support clear, accurate, and meaningful visual communication.
@@ -76,4 +85,4 @@ When submitting your assignment:
 
 Example submission link:
 
-https://github.com/yourusername/COS30045-data-visualisation
+https://github.com/jjj369963/COS30045-Data-Visualization

@@ -42,7 +42,7 @@ A multi-page website built for COS30045 – Data Visualization (Swinburne Univer
 ## Live URL (Mercury Server)
 
 ```
-http://mercury.swin.edu.au/cos30045/s106730497/
+https://mercury.swin.edu.au/cos30045/s106730497/COS30045-Data-Visualization/index.html
 ```
 
 ---
