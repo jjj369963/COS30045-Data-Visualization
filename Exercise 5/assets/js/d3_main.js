@@ -2,7 +2,7 @@
 // Author: Lim Jun Xian
 
 // Step 1: Load and parse dataset
-d3.csv("../data/Data_exercise_5.1.csv", d => {
+d3.csv("assets/data/Data_exercise_5.1.csv", d => {
     return {
         // Convert screen technology name to uppercase
         Screen_Tech: d.Screen_Tech.toUpperCase(),

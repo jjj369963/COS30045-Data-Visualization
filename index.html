@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coursework Navigation | COS30045 Data Visualisation</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="assets/img/PowerIcon.jpg" alt="Power Logo" />
+            <span>COS30045 Data Visualisation</span>
+        </a>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1>Coursework Directory</h1>
+            <p>Lim Jun Xian | 106730497</p>
+        </div>
+
+        <ul class="nav-directory">
+            <!-- Exercise 0.2 -->
+            <li>
+                <a href="Exercise%200.2/index.html">
+                    <span class="dir-title">Exercise 0.2 – Appliance Energy Consumption</span>
+                    <span class="dir-arrow">&rarr;</span>
+                </a>
+            </li>
+
+            <!-- Exercise 3 -->
+            <li>
+                <a href="Exercise%203/storyboard.html">
+                    <span class="dir-title">Exercise 3 – Storyboard</span>
+                    <span class="dir-arrow">&rarr;</span>
+                </a>
+            </li>
+
+            <!-- Exercise 4.1 -->
+            <li>
+                <a href="Exercise%204/Exercise%204.1/svg-house.html">
+                    <span class="dir-title">Exercise 4.1 – SVG House</span>
+                    <span class="dir-arrow">&rarr;</span>
+                </a>
+            </li>
+
+            <!-- Exercise 4.2 - 4.7 -->
+            <li>
+                <a href="Exercise%204/Exercise%204.6/d3demo.html">
+                    <span class="dir-title">Exercise 4.2 – 4.7 – D3 Bar Chart</span>
+                    <span class="dir-arrow">&rarr;</span>
+                </a>
+                <div class="sub-links">
+                    <span>Steps:</span>
+                    <a href="Exercise%204/Exercise%204.2/d3demo.html" title="Exercise 4.2: Manipulate DOM">4.2</a>
+                    <a href="Exercise%204/Exercise%204.3/d3demo.html" title="Exercise 4.3: D3 Setup">4.3</a>
+                    <a href="Exercise%204/Exercise%204.4/d3demo.html" title="Exercise 4.4: Load CSV">4.4</a>
+                    <a href="Exercise%204/Exercise%204.5/d3demo.html" title="Exercise 4.5: Data Binding">4.5</a>
+                    <a href="Exercise%204/Exercise%204.6/d3demo.html" title="Exercise 4.6: Scaled Bar Chart">4.6</a>
+                    <a href="Exercise%204/Exercise%204.7/d3demo.html" title="Exercise 4.7: Adding Labels">4.7</a>
+                </div>
+            </li>
+
+            <!-- Exercise 5 -->
+            <li>
+                <a href="Exercise%205/Multi-chart.html">
+                    <span class="dir-title">Exercise 5 – Multi-Chart Webpage</span>
+                    <span class="dir-arrow">&rarr;</span>
+                </a>
+            </li>
+
+            <!-- Exercise 6 -->
+            <li>
+                <a href="Exercise%206/index.html">
+                    <span class="dir-title">Exercise 6 – Interactive Visualisations</span>
+                    <span class="dir-arrow">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Lim Jun Xian | COS30045 Data Visualisation</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

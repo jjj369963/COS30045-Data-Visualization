@@ -9,13 +9,13 @@ In this exercise, interactive data visualisations are built using **D3.js (v7)**
 ```text
 Exercise 6/
 ├── index.html                 # Main webpage containing all exercise visualisations
-├── data/
-│   └── Ex6_TVdata_withStar.csv # Australian TV energy rating dataset (4,233 records)
 ├── assets/
 │   ├── css/
 │   │   ├── base.css           # Global typography, layout & Appliance Energy theme
 │   │   ├── style.css          # Core site styling
 │   │   └── visualisation.css  # SVG containers, axes & custom interactive filter buttons
+│   ├── data/
+│   │   └── Ex6_TVdata_withStar.csv # Australian TV energy rating dataset (4,233 records)
 │   ├── img/
 │   │   └── PowerIcon.jpg      # Brand logo
 │   └── js/

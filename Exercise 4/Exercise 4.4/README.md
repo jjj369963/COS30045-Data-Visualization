@@ -12,12 +12,12 @@ Learn how to load and format tabular data from a CSV file using D3.js, convert s
      - File name: `tvBrandCount.csv`
      - Advanced settings: `Quote values: Never` (to prevent strings/numbers from being enclosed in quotes).
 2. **Repository Data Folder**:
-   - Created the `data` folder at `Exercise 4/Exercise 4.4/data/`.
-   - Saved `tvBrandCount.csv` inside `data/`.
+   - Created the `data` folder at `assets/data/`.
+   - Saved `tvBrandCount.csv` inside `assets/data/`.
 
 ## Implementation Steps
 1. **Load Data with Row Conversion**:
-   - Used `d3.csv("../data/tvBrandCount.csv", d => { ... })` to load the dataset.
+   - Used `d3.csv("assets/data/tvBrandCount.csv", d => { ... })` to load the dataset.
    - Converted the `count` field from string to number using the unary plus operator (`+d.count`).
 2. **Inspect Dataset Properties (Console)**:
    - `console.log(data)` – Full array of JavaScript objects.

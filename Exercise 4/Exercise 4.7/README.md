@@ -10,20 +10,19 @@ A chart without labels is not very useful. In this exercise, labels (brand categ
 - **SVG Group (`<g>`)**: Used as a container to keep each rectangle and its associated labels grouped together, allowing them to transform and move together.
 
 ## Folder Structure
-```
+```text
 Exercise 4.7/
-├── data/
-│   └── tvBrandCount.csv
-├── Website (LAB)-Exercise 4.7/
-│   ├── assets/
-│   │   ├── css/
-│   │   │   └── style.css
-│   │   ├── img/
-│   │   └── js/
-│   │       ├── d3_main.js
-│   │       └── main.js
-│   ├── d3demo.html
-│   └── README.md
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── data/
+│   │   └── tvBrandCount.csv
+│   ├── img/
+│   │   └── PowerIcon.jpg
+│   └── js/
+│       ├── d3_main.js
+│       └── main.js
+├── d3demo.html
 └── README.md
 ```
 

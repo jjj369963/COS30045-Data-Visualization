@@ -2,7 +2,7 @@
 // Author: Lim Jun Xian
 
 // Step 1: Load and parse dataset
-d3.csv("data/Data_exercise 5.3.csv", d => {
+d3.csv("assets/data/Data_exercise 5.3.csv", d => {
     return {
         // Keep screen size category name
         Screensize_Category: d.Screensize_Category,

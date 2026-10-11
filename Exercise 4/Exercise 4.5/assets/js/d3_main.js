@@ -28,7 +28,7 @@ const drawBarChart = data => {
 };
 
 // Step 1 & 2: Load CSV data with row conversion function
-d3.csv("../data/tvBrandCount.csv", d => {
+d3.csv("assets/data/tvBrandCount.csv", d => {
     return {
         brand: d.brand,
         count: +d.count // '+' operator converts string to numeric type

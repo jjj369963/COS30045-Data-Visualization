@@ -1,7 +1,7 @@
 // Data loading and initialization script for Exercise 6
 
 // Load the CSV file with a row conversion function
-d3.csv("data/Ex6_TVdata_withStar.csv", d => {
+d3.csv("assets/data/Ex6_TVdata_withStar.csv", d => {
     return {
         brand: d.brand,
         model: d.model,

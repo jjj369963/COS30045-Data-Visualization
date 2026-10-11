@@ -7,20 +7,19 @@ Use the data in the dataset to draw SVGs for visualisation.
 Bind the imported and sorted dataset to a set of SVG rectangles (`<rect>`) which become the bars in our horizontal bar chart.
 
 ## Folder Structure
-```
+```text
 Exercise 4.5/
-├── data/
-│   └── tvBrandCount.csv
-├── Website (LAB)-Exercise 4.5/
-│   ├── assets/
-│   │   ├── css/
-│   │   │   └── style.css
-│   │   ├── img/
-│   │   └── js/
-│   │       ├── d3_main.js
-│   │       └── main.js
-│   ├── d3demo.html
-│   └── README.md
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── data/
+│   │   └── tvBrandCount.csv
+│   ├── img/
+│   │   └── PowerIcon.jpg
+│   └── js/
+│       ├── d3_main.js
+│       └── main.js
+├── d3demo.html
 └── README.md
 ```
 

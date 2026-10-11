@@ -2,7 +2,7 @@
 // Author: Lim Jun Xian
 
 // Step 1: Load and parse dataset
-d3.csv("data/ARE_Spot_Prices.csv", d => {
+d3.csv("assets/data/ARE_Spot_Prices.csv", d => {
     return {
         // Convert year to integer
         year: +d.Year,

@@ -10,20 +10,19 @@ Using D3 scales ensures the chart always fits into the available space:
 - `d3.scaleBand()`: For discrete categorical data (calculating bar positions and thickness based on categories).
 
 ## Folder Structure
-```
+```text
 Exercise 4.6/
-├── data/
-│   └── tvBrandCount.csv
-├── Website (LAB)-Exercise 4.6/
-│   ├── assets/
-│   │   ├── css/
-│   │   │   └── style.css
-│   │   ├── img/
-│   │   └── js/
-│   │       ├── d3_main.js
-│   │       └── main.js
-│   ├── d3demo.html
-│   └── README.md
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── data/
+│   │   └── tvBrandCount.csv
+│   ├── img/
+│   │   └── PowerIcon.jpg
+│   └── js/
+│       ├── d3_main.js
+│       └── main.js
+├── d3demo.html
 └── README.md
 ```
 
